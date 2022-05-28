@@ -38,7 +38,9 @@
 
 ## 背景初衷
 
-早期就有关注到由[黑客派](https://hacpai.com/?utm_source=github.com)所出品的 [Vditor](https://hacpai.com/tag/vditor?utm_source=github.com)：一款为未来而构建的下一代 [Markdown](https://nicelinks.site/tags/Markdown/?utm_source=github.com) 编辑器。然，现而今市面上所存在的 [Markdown](https://nicelinks.site/tags/Markdown/?utm_source=github.com) 编辑器，或多或少都存在一些问题（或功能不全，或高级功能收费...），因此基于自身所需，加之 [Vditor](https://hacpai.com/tag/vditor?utm_source=github.com) 的强大，就诞生了做一款[在线 Markdown 编辑器](https://markdown.lovejade.cn/?utm_source=github.com) 的念头；取其名曰 [`H•rise`（二丫）](https://quickapp.lovejade.cn/talking-game-of-thrones/?utm_source=github.com)。
+早期就有关注到由[黑客派](https://hacpai.com/?utm_source=github.com)所出品的 [Vditor](https://hacpai.com/tag/vditor?utm_source=github.com)：一款为未来而构建的下一代 [Markdown](https://nicelinks.site/tags/Markdown/?utm_source=github.com) 编辑器。然，现而今市面上所存在的 [Markdown](https://nicelinks.site/tags/Markdown/?utm_source=github.com) 编辑器，或多或少都存在一些问题（或功能不全，或高级功能收费...），因此基于自身所需，加之 [Vditor](https://hacpai.com/tag/vditor?utm_source=github.com) 的强大，就诞生了做一款[在线 Markdown 编辑器](https://markdown.lovejade.cn/?utm_source=github.com) 的念头；取其名曰 [`H•rise`（汉*日出）](https://quickapp.lovejade.cn/talking-game-of-thrones/?utm_source=github.com)。
+
+一直在用Typoro进行 markdown的编写，突然有一天收费了？我常用的功能就是编辑以及保存，很少用到高级功能，遂自己开发一个自己够用的PC端文本编辑器就又可以看到日出了，所以起名叫《汉*日出》，在己用的同时想要更好的服务于大家，所以大家在使用过程中，有什么不爽的地方尽可提交问题，我们将在后续版本支持。
 
 ## 功能支持
 
@@ -95,28 +97,10 @@ yarn deploy
 
 ## 相关链接
 
-- [**倾城之链**](https://nicelinks.site?utm_source=github.com)
-- [About Me](https://about.me/nicejade?utm_source=github.com)
-- [个人博客](https://jeffjade.com/nicelinks?utm_source=github.com)
-- [静轩之别苑](https://quickapp.lovejade.cn/?utm_source=github.com)
-- [静晴轩别苑](https://nice.lovejade.cn/?utm_source=github.com)
-- [吾意静晴轩](https://docz.lovejade.cn/?utm_source=github.com)
-- [天意人间舫](https://blog.lovejade.cn/?utm_source=github.com)
-- [新浪微博](https://weibo.com/jeffjade?utm_source=github.com)
-- [知乎主页](https://www.zhihu.com/people/yang-qiong-pu/)
-- [简书主页](https://www.jianshu.com/u/9aae3d8f4c3d)
-- [SegmentFault](https://segmentfault.com/u/jeffjade)
-- [Twitter](https://twitter.com/nicejadeyang)
-- [Facebook](https://www.facebook.com/nice.jade.yang)
-
-| 微信公众号 | 前端微信群 | 推荐 Web 应用 | 推荐小程序 |
-| :---: | :---: | :---: | :---: |
-| 😉 静晴轩 | ✨ 大前端联盟 | 🎉 倾城之链 | 🌊 倾城之链 |
-| ![静晴轩](https://image.nicelinks.site/qrcode_jqx.jpg) | ![倾城之链](https://image.nicelinks.site/wqycx-weixin.png?ver=1) | <img src="https://image.nicelinks.site/nice-links.png" width="300px" alt="倾城之链"></img> | <img src="https://camo.githubusercontent.com/a4d1e07fce0639d0a43ebdb4074c5c1e67978934/68747470733a2f2f696d6167652e6e6963656c696e6b732e736974652f6e6963656c696e6b732d6d696e6970726f6772616d2d636f64652e6a706567" width="300px" alt="倾城之链"></img> |
 
 
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2018-present, [nicejade](https://aboutme.lovejade.cn/?utm_source=github.com).
+Copyright (c) 2022-present, [nicejade](https://aboutme.lovejade.cn/?utm_source=github.com).
