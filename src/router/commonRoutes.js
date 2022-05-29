@@ -37,5 +37,5 @@ export default [
         component: resolve => require(['@pages/About'], resolve)
       }
     ]
-  },
+  }
 ]
