@@ -100,6 +100,22 @@ yarn deploy
 
 [H•rise](https://markdown.lovejade.cn/?utm_source=github.com) 的产生，得益于 [vditor](https://github.com/b3log/vditor)：一款浏览器端的 Md 编辑器，同时也离不开 [vue、reveal.js 等开源库](https://github.com/nicejade/markdown-online-editor/blob/master/package.json#L25-L64)的支持，感谢 🙌。
 
+
+## :sparkling_heart:支持这个项目
+
+如果你正在使用这个项目并感觉良好，或只是想要支持我继续开发，你可以通过如下*任意* 方式支持我：
+
+1. *Star* 并 分享这个项目 :rocket:
+2. 关注公众号`乐子侃生活`，回复`学习资源`，可获取 [学习资源](https://rdtalk.cn/tecBlog)
+<!-- 3. 轻轻点击一次页面广告 ✨ -->
+3. 通过以下二维码 一次性捐款。 我多半会买一杯 ~~咖啡~~ 茶。:tea:
+
+谢谢！ :heart:
+
+| 微信赞赏 | 微信 | 支付宝 |
+| :---: | :---: | :---: |
+| <img src="https://cloud.rdtalk.cn/main/zanshang%E5%89%AF%E6%9C%AC.png" alt="赞赏码" width=180> | <img src="https://cloud.rdtalk.cn/main/weixinz%E5%89%AF%E6%9C%AC.png" alt="Wechat QRcode" width=180>| <img src="https://cloud.rdtalk.cn/main/zhifubao%E5%89%AF%E6%9C%AC.png" alt="Alipay QRcode" width=180> |
+
 ## 相关链接
 
 
@@ -108,4 +124,4 @@ yarn deploy
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2022-present, [nicejade](https://aboutme.lovejade.cn/?utm_source=github.com).
+Copyright (c) 2022-present, [Allan Jhon](https://rdtalk.cn).
