@@ -17,5 +17,5 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.{js,vue}', '!src/assets/**'],
   coverageReporters: ['html', 'text-summary'],
   coverageDirectory: path.resolve(__dirname, './tests/coverage'),
-  executablePath:'/Users/zhangyingle/selfspace/edit/Chrom/Chromium'
+  executablePath: '/Users/zhangyingle/selfspace/edit/Chrom/Chromium'
 }

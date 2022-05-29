@@ -11,7 +11,7 @@
 import Vditor from 'vditor'
 // import HeaderNav from './partials/HeaderNav'
 import defaultText from '@config/default'
-const { ipcRenderer, autoUpdater } = require('electron')
+const { ipcRenderer, autoUpdater, clipboard} = require('electron')
 const fs = require('fs')
 // const dialog = require('electron').dialog;
 // const { dialog } = require('electron').remote
@@ -46,6 +46,20 @@ export default {
       // 这里是传给渲染进程的数据
       console.log(that.vditor.getValue())
       fs.writeFileSync(arg, that.vditor.getValue())
+    })
+     ipcRenderer.on('copy-lines', function(event, arg) {
+      // 这里是传给渲染进程的数据
+      console.log(that.vditor.getSelection())
+
+      var copyText=that.vditor.getSelection();
+      clipboard.writeText(copyText)
+
+    })
+     ipcRenderer.on('paste-lines', function(event, arg) {
+      // 这里是传给渲染进程的数据
+      console.log(clipboard.readText())
+      var copyText=clipboard.readText()
+that.vditor.insertValue(copyText)
     })
   },
 

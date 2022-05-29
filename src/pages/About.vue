@@ -6,15 +6,15 @@
 
 <script>
 import PreviewVditor from '@components/PreviewVditor'
-import AboutAryaMd from '@config/aboutArya'
+import AboutHriseMd from '@config/aboutHrise'
 
 export default {
-  name: 'about-arya',
+  name: 'about-hrise',
 
   data() {
     return {
       isLoading: true,
-      pdata: AboutAryaMd
+      pdata: AboutHriseMd
     }
   },
 

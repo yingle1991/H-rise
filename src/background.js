@@ -34,7 +34,6 @@ async function createWindow() {
   }
   //执行设置菜单操作
   require('./main/menu.js')
-
 }
 
 // Quit when all windows are closed.

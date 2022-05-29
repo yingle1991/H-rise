@@ -12,22 +12,6 @@ export default [
     component: resolve => require(['@pages/Main'], resolve)
   },
   {
-    path: '/about-Hrise',
-    meta: {
-      title: `关于 | ${window.$appTitle}`
-    },
-    component: Frame,
-    children: [
-      {
-        path: '/',
-        meta: {
-          title: `关于 | ${window.$appTitle}`
-        },
-        component: resolve => require(['@pages/About'], resolve)
-      }
-    ]
-  },
-  {
     path: '/index',
     redirect: '/'
   },
@@ -37,5 +21,21 @@ export default [
       title: 'Page Not Found'
     },
     component: NotFound
-  }
+  },
+  {
+    path: '/about',
+    meta: {
+      title: `关于 | ${window.$appTitle}`
+    },
+    component: Frame,
+    children: [
+      {
+        path: 'hrise',
+        meta: {
+          title: `关于 | ${window.$appTitle}`
+        },
+        component: resolve => require(['@pages/About'], resolve)
+      }
+    ]
+  },
 ]
