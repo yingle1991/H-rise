@@ -117,12 +117,12 @@ module.exports = {
             staticDir: path.join(__dirname, 'dist'),
             // Required - Routes to render.
             routes: [
-              '/',
-              '/about-hrise',
-              '/export/pdf',
-              '/export/png',
-              '/export/jpeg',
-              '/export/ppt'
+              '/index',
+              // '/about-Hrise',
+              // '/export/pdf',
+              // '/export/png',
+              // '/export/jpeg',
+              // '/export/ppt'
             ],
             render: new PrerenderSPAPlugin.PuppeteerRenderer({
               renderAfterTime: 3000

@@ -34,16 +34,7 @@ async function createWindow() {
   }
   //执行设置菜单操作
   require('./main/menu.js')
-  // require('./renderer/ipcRenderer.js');
-  // win.webContents.on('did-finish-load', function(event, message) {
-  //   console.log(message)
-  //   ipcMain.send('action', 'whoooooooh!');
-  // });
-  win.webContents.send('img-files', ';e;')
-  ipcMain.on('did-finish-load', (event, arg) => {
-    console.log(arg) // prints "ping"
-    event.sender.send('asynchronous-reply', 'pong')
-  })
+
 }
 
 // Quit when all windows are closed.
