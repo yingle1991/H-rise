@@ -1,0 +1,152 @@
+{
+  "name": "h-rise",
+  "version": "0.0.1",
+  "private": true,
+  "description": "📝基于 Vue、Vditor，所构建的在线 Markdown 编辑器，支持流程图、甘特图、时序图、任务列表、HTML 自动转换为 Markdow等功能。",
+  "author": "rdtalk <yingle1991@163.com>",
+  "scripts": {
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "deploy": "bash ./commands/deploy.sh",
+    "analyz": "NODE_ENV=production  npm_config_report=true npm run build",
+    "clear-commit-msg": "bash ./commands/clear-commit-msg.sh",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "eslint-fix": "eslint src/**/**/*.vue --fix",
+    "format-code": "prettier-eslint --write \"src/**/*.{js,vue,css,scss}\"",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps",
+    "precommit-msg": "echo '🐉 Start pre-commit checks...' && exit 0",
+    "prettier": "prettier --write \"src/**/**/*.{js,css,scss,vue}\"",
+    "preview": "node ./commands/preview.js",
+    "start": "yarn serve",
+    "test": "vue-cli-service test:unit",
+    "testbuild": "vue-cli-service build --mode development",
+    "watcher": "onchange \"src/**/**/*.{js,css,scss,vue}\" -- prettier --write {{changed}}"
+  },
+  "main": "background.js",
+  "dependencies": {
+    "canvg": "^2.0.0",
+    "electron-builder": "^23.0.3",
+    "element-ui": "^2.12.0",
+    "hint.css": "^2.6.0",
+    "html2canvas": "^1.0.0-rc.3",
+    "html2pdf.js": "^0.9.1",
+    "lodash": "4.17.15",
+    "lodash.assign": "^4.2.0",
+    "lodash.clonedeep": "^4.5.0",
+    "register-service-worker": "^1.0.0",
+    "reveal.js": "^3.8.0",
+    "vditor": "3.8.15",
+    "vue": "^2.5.17",
+    "vue-meta": "^2.2.2",
+    "vue-router": "^3.1.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-plugin-pwa": "^3.11.0",
+    "@vue/cli-plugin-unit-jest": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^24.9.0",
+    "css-loader": "^3.4.2",
+    "electron": "^13.0.0",
+    "electron-devtools-installer": "^3.1.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "husky": "^3.0.5",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^9.2.5",
+    "onchange": "^6.1.0",
+    "prerender-spa-plugin": "^3.4.0",
+    "prettier-eslint-cli": "^5.0.0",
+    "size-plugin": "^2.0.0",
+    "spectron": "15.0.0",
+    "svg-sprite-loader": "^4.1.6",
+    "svgo-loader": "2.2.1",
+    "vue-cli-plugin-electron-builder": "~2.1.1",
+    "vue-svg-loader": "^0.12.0",
+    "vue-template-compiler": "^2.5.17",
+    "webpack-bundle-analyzer": "3.5.0"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "eslintConfig": {
+    "globals": {
+      "L": true
+    },
+    "root": true,
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-useless-escape": 0,
+      "no-multiple-empty-lines": [
+        2,
+        {
+          "max": 3
+        }
+      ],
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "semi": false,
+          "trailingComma": "none",
+          "bracketSpacing": true,
+          "jsxBracketSameLine": true,
+          "insertPragma": true,
+          "requirePragma": false
+        }
+      ]
+    },
+    "plugins": [],
+    "extends": [
+      "plugin:vue/essential",
+      "plugin:prettier/recommended",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "printWidth": 100,
+    "proseWrap": "never"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "eslintIgnore": [
+    "package.json"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run precommit-msg && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**.{js,json,pcss,vue,css,scss}": [
+      "prettier --write"
+    ]
+  }
+}
