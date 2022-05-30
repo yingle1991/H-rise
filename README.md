@@ -95,17 +95,17 @@
 
 ```bash
 # 🎉 克隆项目
-git clone https://github.com/nicejade/markdown-online-editor.git
-cd markdown-online-editor
+git clone https://github.com/yingle1991/H-rise.git
+cd H-rise
 
 # ➕ 安装依赖(跳过安装 )
 env PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn
 
 # 🚧 开始开发
-yarn start
+npm run electron:serve
 
-# 🚀 部署 Github Pages(需修改 commands/deploy.sh)
-yarn deploy
+# 🚀 打包
+npm run electron:build
 ```
 
 > 关于本应用构建：因采用 [prerender-spa-plugin](https://github.com/chrisvfritz/prerender-spa-plugin) 以解决 SPA SEO 问题，故而，您需要在根目录下创建 `H•rise.config.js`，根据 *H•rise.config.sample.js* 中示例格式，来设定 `executablePath` 参数，从而指定插件中捆绑的 **Chromium** 所在目录，使得 `prerender-spa-plugin` 可以正常工作。更多详情，可以参见 [Puppeteer 安装注意事项](https://www.jeffjade.com/2019/06/14/156-puppeteer-robot/#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85)。
@@ -135,6 +135,17 @@ yarn deploy
 
 
 ## 相关链接
+
+`乐子侃生活`是本人对开发生活中各种有趣的、好玩的、沙雕的创意和想法以在线小网站或者文章的形式表达出来，比如：
+- [小霸王游戏机](https://game.rdtalk.cn)
+- [爱国头像生成器](https://avatar.xugaoyi.com/)
+- [到账语音生成器](https://zfb.xugaoyi.com/)
+
+还有更多好玩的等你去探索吧~
+
+
+<!-- <img src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store@master/blog/扫码_搜索联合传播样式-标准色版.1wp8gd1mhjhc.jpg"  style="width:370px;" /> -->
+<img src="https://cloud.rdtalk.cn/main/qrcode_for_gh_81ff60cc4083_258.jpg"  style="width:180px;" />
 
 ## License
 
