@@ -189,13 +189,13 @@ module.exports = {
         electronDownload: {
           mirror: "https://npm.taobao.org/mirrors/electron/"
         },
-        win: {
-          icon: './public/favicon.ico'
+        "win": {
+          icon: "./public/icon/logo256.ico"
         },
         productName: "HRise",
         appId: "com.rdtalk.mkdown",
         mac: {
-          "icon": "public/icon/logo.icns"
+          icon: "./public/icon/logo.icns"
         }
       }
     }
