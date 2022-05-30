@@ -7,7 +7,7 @@
         href="https://markdown.lovejade.cn/?utm_sourece=markdown.lovejade.cn&pid=main-title"
         class="header-link"
       >
-        <img class="mark-markdown" src="@assets/images/markdown.png" alt="在线 Markdown 编辑器" />
+        <img class="mark-markdown" src="@assets/images/markdown.png" alt="在线/离线 Markdown 编辑器" />
         <strong v-if="!isMobile" class="header-text">{{ titleText }}</strong>
       </a>
       <div class="button-group">

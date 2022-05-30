@@ -1,5 +1,5 @@
 'use strict'
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, dialog } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -34,6 +34,22 @@ async function createWindow() {
   }
   //执行设置菜单操作
   require('./main/menu.js')
+  ipcMain.on('show-save-dialog', function (event, arg) {
+    dialog
+          .showSaveDialog({
+            title: '保存文件',
+            defaultPath: '',
+            filters: [{ name: 'Text', extensions: ['md'] }]
+          })
+          .then(result => {
+            if (!result.canceled && result.filePath) {
+              BrowserWindow.getFocusedWindow().webContents.send('save-files', result.filePath)
+            }
+          })
+          .catch(err => {
+            console.log(err)
+          })
+  });
 }
 
 // Quit when all windows are closed.

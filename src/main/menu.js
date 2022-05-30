@@ -28,7 +28,6 @@ var template = [
     submenu: [
       {
         label: '关于H•rise',
-        role: 'copy'
       },
       {
         label: '退出',
@@ -93,33 +92,11 @@ var template = [
       {
         label: '保存',
 
-        accelerator: 'ctrl+s',
+        accelerator: 'CmdOrCtrl+S',
 
         click: function() {
-          dialog
-            .showSaveDialog({
-              title: '保存文件',
-              defaultPath: '',
-              filters: [{ name: 'Text', extensions: ['md'] }]
-            })
-            .then(result => {
-              console.log(result)
-              if (!result.canceled && result.filePath) {
-                console.log(
-                  BrowserWindow.getFocusedWindow().webContents.send('save-files', result.filePath)
-                )
-                // console.log(BrowserWindow.getFocusedWindow().webContents.send('img-files',result.filePaths[0]))
-                // this.$emitNode("tradeMenu", "open", result.filePaths[0]);
-                // //  监听主进程读完文件数据
-                // this.$onNodeOnce("tradeMenuOpen", (event, arg) => {
-                //     let trade = openFormat(result.filePaths[0], arg);
-                //     this.newEditTrade(trade);
-                // });
-              }
-            })
-            .catch(err => {
-              console.log(err)
-            })
+          BrowserWindow.getFocusedWindow().webContents.send('save-files', null)
+
         }
       },
       {

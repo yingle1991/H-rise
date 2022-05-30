@@ -11,7 +11,7 @@
 import Vditor from 'vditor'
 // import HeaderNav from './partials/HeaderNav'
 import defaultText from '@config/default'
-const { ipcRenderer, autoUpdater, clipboard } = require('electron')
+const { ipcRenderer, autoUpdater, clipboard, dialog } = require('electron')
 const fs = require('fs')
 // const dialog = require('electron').dialog;
 // const { dialog } = require('electron').remote
@@ -22,15 +22,16 @@ export default {
     return {
       // isLoading: true,
       isMobile: window.innerWidth <= 960,
-      vditor: null
+      vditor: null,
+      openfilePath: null,
     }
   },
 
   created() {
     this.setDefaultText()
     let that = this
-    ipcRenderer.on('img-files', function(event, arg) {
-      console.log('laile?') // prints "pong"
+    ipcRenderer.on('img-files', function (event, arg) {
+      that.openfilePath = arg;
       // 这里是传给渲染进程的数据
       fs.readFile(arg, 'utf8', (err, data) => {
         if (err) {
@@ -41,20 +42,22 @@ export default {
         }
       })
     })
-    ipcRenderer.on('save-files', function(event, arg) {
-      console.log('laile1?') // prints "pong"
+    ipcRenderer.on('save-files', function (event, arg) {
       // 这里是传给渲染进程的数据
-      console.log(that.vditor.getValue())
-      fs.writeFileSync(arg, that.vditor.getValue())
+      if (!arg && !that.openfilePath) {
+        ipcRenderer.send('show-save-dialog');
+      } else {
+        var filePath = arg ? arg : that.openfilePath;
+        fs.writeFileSync(filePath, that.vditor.getValue())
+      }
     })
-    ipcRenderer.on('copy-lines', function(event, arg) {
+    ipcRenderer.on('copy-lines', function (event) {
       // 这里是传给渲染进程的数据
       console.log(that.vditor.getSelection())
-
       var copyText = that.vditor.getSelection()
       clipboard.writeText(copyText)
     })
-    ipcRenderer.on('paste-lines', function(event, arg) {
+    ipcRenderer.on('paste-lines', function (event) {
       // 这里是传给渲染进程的数据
       console.log(clipboard.readText())
       var copyText = clipboard.readText()
@@ -76,11 +79,12 @@ export default {
 
   methods: {
     initVditor(self) {
+      self=this;
       const that = this
       const options = {
         // width: this.isMobile ? '100%' : '80%',
         width: '100%',
-        height: 'auto',
+        height: '100%',
         tab: '\t',
         counter: '999999',
         typewriterMode: true,
@@ -93,22 +97,31 @@ export default {
         toolbarConfig: {
           pin: true
         },
-        counter: {
-          enable: true
+        outline: {
+          enable: true,
+          position: 'left'
         },
-        outline: true,
         upload: {
           max: 5 * 1024 * 1024,
           // linkToImgUrl: 'https://sm.ms/api/upload',
           handler(file) {
             let formData = new FormData()
             for (let i in file) {
-              formData.append('smfile', file[i])
+              formData.append('file', file[i])
+              formData.append('uid', '787672c90139802e97db58d3a9f71e35')
+              formData.append('token', '6b738b76c3f8ec2c8dbce31fedb32445')
             }
             let request = new XMLHttpRequest()
-            request.open('POST', 'https://sm.ms/api/upload')
+            request.open('POST', 'https://www.imgurl.org/api/v2/upload')
             request.onload = that.onloadCallback
             request.send(formData)
+            // for (let i in file) {
+            //   formData.append('smfile', file[i])
+            // }
+            // let request = new XMLHttpRequest()
+            // request.open('POST', 'https://sm.ms/api/upload')
+            // request.onload = that.onloadCallback
+            // request.send(formData)
           }
         }
         // // 工具栏配置具体看 vditor 使用指南
@@ -158,7 +171,7 @@ export default {
         //   }],
       }
       this.vditor = new Vditor('vditor', options)
-      this.vditor.focus()
+      // this.vditor.focus()
     },
     onloadCallback(oEvent) {
       const currentTarget = oEvent.currentTarget
@@ -181,6 +194,10 @@ export default {
       } else if (resp.code === 'success' || resp.success) {
         imgMdStr = `![${resp.data.filename}](${resp.data.url})`
       }
+      //支持 imgurl
+      if (resp.code === 200) {
+        imgMdStr = `![${resp.data.client_name}](${resp.data.url})`
+      }
       this.vditor.insertValue(imgMdStr)
     },
     setDefaultText() {
@@ -189,48 +206,6 @@ export default {
         localStorage.setItem('vditorvditor', defaultText)
       }
     },
-    async open_md() {
-      // const file_path = await dialog.open({
-      //   filter: 'md',
-      // })
-      ipcRenderer.send('did-finish-load', 'zhang')
-      dialog
-        .showOpenDialog({
-          title: '打开文件',
-          defaultPath: '',
-          properties: ['openFile'],
-          // properties: ['openFile', 'multiSelections'],
-          filters: [{ name: 'Text', extensions: ['md'] }]
-        })
-        .then(result => {
-          if (!result.canceled && result.filePaths.length > 0) {
-            console.log(result.filePaths[0])
-            BrowserWindow.getFocusedWindow().webContents.send('action', result.filePaths[0])
-            // this.$emitNode("tradeMenu", "open", result.filePaths[0]);
-            // //  监听主进程读完文件数据
-            // this.$onNodeOnce("tradeMenuOpen", (event, arg) => {
-            //     let trade = openFormat(result.filePaths[0], arg);
-            //     this.newEditTrade(trade);
-            // });
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
-      // Notification.info(JSON.stringify(file_path))
-      let result = await readTextFile(file_path)
-      // Notification.info(JSON.stringify(result))
-      this.vditor.setValue(result)
-    },
-    async save_md() {
-      const file_path = await dialog.save({
-        filter: 'md'
-      })
-      await writeFile({
-        path: file_path,
-        contents: this.vditor.getValue()
-      })
-    }
   }
 }
 </script>

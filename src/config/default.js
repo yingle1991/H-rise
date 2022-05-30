@@ -48,9 +48,9 @@ const echartsConf = {
 
 const echartsDemoJsonStr = JSON.stringify(echartsConf, null, 2)
 
-export default `# 欢迎使用 \`H•rise\` 在线 Markdown 编辑器
+export default `# 欢迎使用 \`H•rise\` 在线/离线 Markdown 编辑器
 
-[H•rise]()，是一款基于 \`electron\`、 \`Vue\`、\`Vditor\`，为未来而构建的在线 Markdown 编辑器；轻量且强大：内置粘贴 HTML 自动转换为 Markdown，支持流程图、甘特图、时序图、任务列表，可导出携带样式的图片、PDF、微信公众号特制的 HTML 等等。
+[H•rise]()，是一款基于 \`electron\`、 \`Vue\`、\`Vditor\`，为未来而构建的在线/离线 Markdown 编辑器；轻量且强大：内置粘贴 HTML 自动转换为 Markdown，支持流程图、甘特图、时序图、任务列表，可导出携带样式的图片、PDF、微信公众号特制的 HTML 等等。
 
 ---
 

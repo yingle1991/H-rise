@@ -1,6 +1,6 @@
 /** @format */
 
-export const appTitle = 'H•rise - 在线 Markdown 编辑器'
+export const appTitle = 'H•rise'
 
 export const exportTextMap = {
   '/export/png': '导出 PNG',

@@ -5,7 +5,7 @@ export default {
     const vm = this
     return {
       title: '首页',
-      siteTitle: '在线 Markdown 编辑器',
+      siteTitle: '在线/离线 Markdown 编辑器',
       titleTemplate: '%s - ' + vm.siteTitle,
       keywords:
         'vue,vue-cli3,webpack,vuex,vue-router,element-ui,TypeScript,ESLint,Prettier,Dayjs,Markdown,Jest,PWA,开箱即用,脚手架,模板',

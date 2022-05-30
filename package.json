@@ -2,7 +2,7 @@
   "name": "h-rise",
   "version": "0.0.1",
   "private": true,
-  "description": "📝基于 Vue、Vditor，所构建的在线 Markdown 编辑器，支持流程图、甘特图、时序图、任务列表、HTML 自动转换为 Markdow等功能。",
+  "description": "📝基于 Vue、Vditor，所构建的在线/离线 Markdown 编辑器，支持流程图、甘特图、时序图、任务列表、HTML 自动转换为 Markdow等功能。",
   "author": "rdtalk <yingle1991@163.com>",
   "scripts": {
     "serve": "vue-cli-service serve --open",
@@ -31,7 +31,7 @@
     "electron-builder": "^23.0.3",
     "element-ui": "^2.12.0",
     "hint.css": "^2.6.0",
-    "html2canvas": "^1.0.0-rc.3",
+    "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.9.1",
     "lodash": "4.17.15",
     "lodash.assign": "^4.2.0",

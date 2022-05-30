@@ -113,29 +113,29 @@ module.exports = {
     plugins: [
       isProductionEnvFlag
         ? new PrerenderSPAPlugin({
-            // Required - The path to the webpack-outputted app to prerender.
-            staticDir: path.join(__dirname, 'dist'),
-            // Required - Routes to render.
-            routes: [
-              '/',
-              '/about/hrise',
-              '/export/pdf',
-              '/export/png',
-              '/export/jpeg',
-              '/export/ppt'
-            ],
-            render: new PrerenderSPAPlugin.PuppeteerRenderer({
-              renderAfterTime: 5000,
-              headless: true
-            }),
-            minify: {
-              collapseWhitespace: true,
-              keepClosingSlash: true,
-              sortAttributes: true
-            }
-          })
-        : () => {},
-      isProductionEnvFlag ? new SizePlugin() : () => {}
+          // Required - The path to the webpack-outputted app to prerender.
+          staticDir: path.join(__dirname, 'dist'),
+          // Required - Routes to render.
+          routes: [
+            '/',
+            '/about/hrise',
+            '/export/pdf',
+            '/export/png',
+            '/export/jpeg',
+            '/export/ppt'
+          ],
+          render: new PrerenderSPAPlugin.PuppeteerRenderer({
+            renderAfterTime: 5000,
+            headless: true
+          }),
+          minify: {
+            collapseWhitespace: true,
+            keepClosingSlash: true,
+            sortAttributes: true
+          }
+        })
+        : () => { },
+      isProductionEnvFlag ? new SizePlugin() : () => { }
     ]
   },
 
@@ -147,7 +147,7 @@ module.exports = {
   // see => https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
   // https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin
   pwa: {
-    name: 'H•rise - 在线 Markdown 编辑器',
+    name: 'H•rise',
     themeColor: '#4DBA87',
     msTileColor: '#000000',
     appleMobileWebAppCapable: 'yes',
@@ -177,14 +177,27 @@ module.exports = {
     hotOnly: false,
     // See https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#configuring-proxy
     proxy: null, // string | Object
-    before: () => {}
+    before: () => { }
   },
 
   // options for 3rd party plugins
   pluginOptions: {
     electronBuilder: {
       nodeIntegration: true,
-      contextIsolation: false
+      contextIsolation: false,
+      builderOptions: {
+        electronDownload: {
+          mirror: "https://npm.taobao.org/mirrors/electron/"
+        },
+        win: {
+          icon: './public/favicon.ico'
+        },
+        productName: "HRise",
+        appId: "com.rdtalk.mkdown",
+        mac: {
+          "icon": "public/icon/logo.icns"
+        }
+      }
     }
   }
 }
